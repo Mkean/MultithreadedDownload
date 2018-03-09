@@ -194,6 +194,7 @@ public class DownloadHttpTool {
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setConnectTimeout(5000);
                 connection.setRequestMethod("GET");
+                //支持断点续传，指定范围
                 connection.setRequestProperty("Range", "bytes="
                         + (startPos + completeSize) + "-" + endPos);
                 is = connection.getInputStream();
